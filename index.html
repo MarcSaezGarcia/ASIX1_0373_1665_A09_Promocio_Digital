@@ -1,21 +1,204 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ca">
 <head>
     <meta charset="UTF-8">
-    <title>Bibliotecas & IA</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteques & IA | DDMM Digital</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600&family=Poppins:wght@700;800&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="dynamic-bg">
+<body>
 
-    <div class="container">
-        <h1>Donde las bibliotecas del conocimiento se encuentran con la Inteligencia Artificial</h1>
+    <nav>
+        <div class="logo">BIBLIO<span>IA</span></div>
+        <ul>
+            <li><a href="#home">Inici</a></li>
+            <li><a href="#estrategia">Estratègia</a></li>
+            <li><a href="#portfolio">Projectes</a></li>
+            <li><a href="#contact">Contacte</a></li>
+        </ul>
+    </nav>
 
-        <nav class="menu">
-            <a href="./htmls/videos.html">📺 VIDEOS</a>
-            <a href="./htmls/contactanos.html">📩 CONTÁCTANOS</a>
-        </nav>
-    </div>
+    <header id="home" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>On les biblioteques es troben amb la <br> 
+                <span class="highlight">Intel·ligència Artificial</span>
+            </h1>
+            <p>Creant el futur de la lectura digital mitjançant contingut generatiu d'alt impacte.</p>
+            <a href="#portfolio" class="btn-primary">Explorar Portfoli</a>
+        </div>
+        
+        <div class="scroll-down">
+            <div class="mouse"><div class="wheel"></div></div>
+            <div class="arrows"><span></span><span></span><span></span></div>
+        </div>
+    </header>
 
-    <script src="./js/index-bg.js"></script>
+    <section id="estrategia" class="container">
+        <h2 class="section-title">Anàlisi del Projecte</h2>
+        <div class="strategy-grid">
+            <div class="strategy-card">
+                <div class="card-icon"><i class="fa-solid fa-book-open"></i></div>
+                <h3>El Client</h3>
+                <h4>La Teva Llibreria</h4>
+                <p>Modernització de la presència digital per a lectors de 18 a 50 anys interessats en novetats literàries.</p>
+            </div>
+
+            <div class="strategy-card highlight-card">
+                <div class="card-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>La Solució</h3>
+                <h4>IA Generativa</h4>
+                <p>Implementació de fluxos de treball amb ChatGPT i MidJourney per a producció de vídeo vertical d'alta gamma.</p>
+            </div>
+
+            <div class="strategy-card">
+                <div class="card-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <h3>L'Objectiu</h3>
+                <h4>Fidelització</h4>
+                <p>Incrementar la venda online i la visibilitat de la marca a TikTok i Instagram Reels.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="container">
+        <h2 class="section-title">Projectes Audiovisuals</h2>
+
+        <article class="project reveal">
+            <div class="project-video">
+                <div class="phone-frame">
+                    <video controls autoplay muted loop playsinline>
+                        <source src="videos/video1.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <span><i class="fa-solid fa-heart"></i> 1.5k</span>
+                        <span><i class="fa-solid fa-bookmark"></i> 230</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-details">
+                <h3>Extra. Campanya "Llibre de la Setmana"</h3>
+                <div class="tabs">
+                    <button class="tab-link active" onclick="openTab(event, 'fitxa1')">Fitxa Tècnica</button>
+                    <button class="tab-link" onclick="openTab(event, 'prompts1')">Prompts i Eines</button>
+                </div>
+
+                <div id="fitxa1" class="tab-content active-tab">
+                    <table class="tech-table">
+                        <tr><th>Producte:</th><td>Vídeo setmanal amb llibre en oferta, resum i preu.</td></tr>
+                        <tr><th>Audiència:</th><td>Lectors de 18 a 50 anys.</td></tr>
+                        <tr><th>Format:</th><td>9:16 (TikTok/Reels) - 15-20 segons.</td></tr>
+                        <tr><th>Disseny:</th><td>Fotografies, animació de pàgines i colors càlids.</td></tr>
+                        <tr><th>IAs:</th><td>ChatGPT, Canva, Fliki, Pictory.</td></tr>
+                        <tr><th>Preu:</th><td><strong>50€ / vídeo</strong></td></tr>
+                    </table>
+                </div>
+
+                <div id="prompts1" class="tab-content">
+                    <div class="prompt-structure">
+                        <h4><i class="fa-solid fa-robot"></i> Guió (ChatGPT)</h4>
+                        <ul class="prompt-breakdown">
+                            <li><strong>Rol:</strong> Director de contingut audiovisual especialitzat.</li>
+                            <li><strong>Context:</strong> Imatges càlides, llum natural, ambient íntim de lectura.</li>
+                        </ul>
+                        <div class="prompt-box">
+                            "Crea un guió visual i cinematogràfic que mostri el moment íntim d'agafar la tablet fins a descobrir ofertes especials."
+                        </div>
+                        <h4><i class="fa-solid fa-image"></i> Prompt Visual</h4>
+                        <div class="prompt-box">
+                            "Cinematic close-up shot of a person's hand opening a tablet... blurred cozy library atmosphere. 4k resolution."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <article class="project reveal">
+            <div class="project-video">
+                <div class="phone-frame">
+                    <video controls autoplay muted loop playsinline>
+                        <source src="videos/video2.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <span><i class="fa-solid fa-heart"></i> 3.2k</span>
+                        <span><i class="fa-solid fa-share"></i> Viral</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="project-details">
+                <h3>Descobreix-nos: Branding de Luxe</h3>
+                <div class="tabs">
+                    <button class="tab-link active" onclick="openTab(event, 'fitxa2')">Fitxa Tècnica</button>
+                    <button class="tab-link" onclick="openTab(event, 'prompts2')">Prompts i Eines</button>
+                </div>
+
+                <div id="fitxa2" class="tab-content active-tab">
+                    <table class="tech-table">
+                        <tr><th>Producte:</th><td>Vídeo promocional d'espais i col·leccions.</td></tr>
+                        <tr><th>Objectiu:</th><td>Visibilitat i trànsit a la llibreria física.</td></tr>
+                        <tr><th>Format:</th><td>TikTok/Instagram (9:16 i 16:9) - 30-45 segons.</td></tr>
+                        <tr><th>IAs:</th><td>ChatGPT, MidJourney, Fliki, Pictory.</td></tr>
+                        <tr><th>Preu:</th><td><strong>120€ / vídeo</strong></td></tr>
+                    </table>
+                </div>
+
+                <div id="prompts2" class="tab-content">
+                    <div class="prompt-structure">
+                        <h4><i class="fa-solid fa-robot"></i> Guió (ChatGPT)</h4>
+                        <ul class="prompt-breakdown">
+                            <li><strong>Rol:</strong> Director especialitzat en experiències de luxe per a nens.</li>
+                            <li><strong>Restricció:</strong> To poètic, sense diàlegs, narrativa visual fluida.</li>
+                        </ul>
+                        <div class="prompt-box">
+                            "Dissenya la màgia d'una llibreria exclusiva destacant llibres infantils amb il·lustracions vibrants i llum daurada."
+                        </div>
+                        <h4><i class="fa-solid fa-image"></i> Prompt Visual</h4>
+                        <div class="prompt-box">
+                            "Vertical video (9:16). A smooth camera dolly-out reveals a high-end bookstore... Dust motes dance in the air. 4K."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <section id="contact" class="container reveal">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Parlem?</h3>
+                <p>Tens un projecte o una idea per a la teva llibreria? Envia'ns un missatge i ho farem realitat.</p>
+                <div class="info-item">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>info@biblioteca-ia.com</span>
+                </div>
+            </div>
+
+            <form class="contact-form">
+                <input type="text" placeholder="El teu nom" required>
+                <input type="email" placeholder="Correu electrònic" required>
+                <textarea rows="4" placeholder="En què et podem ajudar?" required></textarea>
+                <button type="submit">Enviar Missatge</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="socials">
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p>© 2026 Biblioteques & IA | DDMM Digital</p>
+    </footer>
+
+    <a href="https://wa.me/teu_numero" class="whatsapp-float" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="main.js"></script>
 </body>
 </html>

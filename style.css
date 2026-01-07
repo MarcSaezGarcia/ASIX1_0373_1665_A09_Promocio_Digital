@@ -1,0 +1,638 @@
+/* =========================================
+   ARCHIVO: styles.css (COMPLETO, LIMPIO Y DEFINITIVO)
+   ========================================= */
+
+/* --- 1. VARIABLES Y RESET (NUEVA PALETA EMERALD) --- */
+:root {
+    --primary: #2EC4B6; /* Turquesa/Menta (IA y Tecnología) */
+    --secondary: #204E4A; /* Verde Bosque Medio */
+    --accent: #FFBE0B; /* Mantenemos el Amarillo Solar (contrasta genial con verde) */
+    --dark: #0A1A19; /* Fondo Verde muy oscuro, casi negro (Sustituye al azul marino) */
+    --light: #F0FDFA; /* Blanco con un toque menta */
+    
+    /* Efecto cristal con tono verdoso */
+    --glass: rgba(10, 26, 25, 0.8); 
+    --glass-border: rgba(46, 196, 182, 0.2);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--light);
+    overflow-x: hidden;
+}
+
+/* --- 1.1. DETALLES UI PREMIUM (Scrollbar y Selección) --- */
+/* Barra de Scroll Personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, var(--primary), var(--secondary));
+    border-radius: 5px;
+    border: 2px solid var(--dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Color de Selección de Texto */
+::selection {
+    background-color: var(--accent);
+    color: var(--dark);
+}
+
+
+/* --- 2. NAVBAR (ESTILO PREMIUM REVISADO) --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px; /* Un poco más estrecho y elegante */
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    /* Fondo con el nuevo verde oscuro y más transparencia */
+    background: rgba(10, 26, 25, 0.85); 
+    backdrop-filter: blur(15px); /* Más desenfoque para que parezca cristal caro */
+    border-bottom: 1px solid rgba(46, 196, 182, 0.15);
+    transition: 0.4s ease;
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    color: var(--light);
+    text-transform: uppercase;
+}
+
+/* El span del logo con el nuevo turquesa y un brillo suave */
+.logo span { 
+    color: var(--primary); 
+    text-shadow: 0 0 10px rgba(46, 196, 182, 0.5);
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 40px; 
+    align-items: center; 
+}
+
+nav a { 
+    text-decoration: none; 
+    color: rgba(240, 253, 250, 0.8); /* Un blanco ligeramente apagado para no cansar la vista */
+    font-weight: 500; 
+    transition: 0.3s; 
+    font-size: 0.9rem; 
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: var(--primary);
+}
+
+/* El botón de Contacto (el último enlace) */
+nav ul li:last-child a {
+    background: transparent;
+    padding: 8px 22px;
+    border-radius: 4px; /* Menos redondeado para un look más serio/biblioteca */
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+    box-shadow: none;
+    transition: 0.4s;
+}
+
+nav ul li:last-child a:hover {
+    background: var(--primary);
+    color: var(--dark);
+    box-shadow: 0 0 20px rgba(46, 196, 182, 0.4);
+    transform: translateY(0); /* Quitamos el salto para que sea más estable */
+}
+
+/* --- 3. HERO SECTION (SLIDER ESTILO BIBLIOTECA) --- */
+@keyframes luxurySlide {
+    /* 1. Biblioteca Clásica / Majestuosa */
+    0%, 14% { background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop'); }
+    
+    /* 2. Detalle de Libros y Madera */
+    17%, 30% { background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=2070&auto=format&fit=crop'); }
+    
+    /* 3. Pasillo de Estanterías Infinito */
+    34%, 47% { background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=2070&auto=format&fit=crop'); }
+    
+    /* 4. Biblioteca Moderna / Minimalista */
+    50%, 64% { background-image: url('https://images.unsplash.com/photo-1521587760476-6c12a4b040da?q=80&w=2070&auto=format&fit=crop'); }
+    
+    /* 5. Lámpara de Lectura y Ambiente Cálido */
+    67%, 80% { background-image: url('https://images.unsplash.com/photo-1491845339103-6c10f4f4b232?q=80&w=2070&auto=format&fit=crop'); }
+    
+    /* 6. Escaleras de Madera y Libros */
+    83%, 97% { background-image: url('https://images.unsplash.com/photo-1568667256549-094345857637?q=80&w=2070&auto=format&fit=crop'); }
+    
+    100% { background-image: url('https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=2070&auto=format&fit=crop'); }
+}
+
+.hero {
+    height: 100vh;
+    animation: luxurySlide 36s infinite ease-in-out;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    background-color: var(--dark);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    /* Degradado que tira hacia tu nuevo color verde oscuro */
+    background: linear-gradient(to bottom, rgba(10, 26, 25, 0.4), rgba(10, 26, 25, 0.8));
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    background: rgba(13, 19, 33, 0.2); 
+    backdrop-filter: blur(3px);        
+    padding: 40px;                     
+    border-radius: 30px;               
+    border: 1px solid rgba(255, 255, 255, 0.05); 
+    box-shadow: none; 
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    line-height: 1.3;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.9), 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* ESTILO DEL TEXTO "INTELIGENCIA ARTIFICIAL" (Unificado y Animado) */
+.highlight {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 2.5rem;
+    display: block;
+    margin-top: 10px;
+    
+    /* Gradiente animado */
+    background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 5s linear infinite;
+    
+    text-shadow: none;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 40px;
+    padding: 15px 50px;
+    background: transparent;
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    border: 2px solid var(--primary);
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 0 30px rgba(58, 134, 255, 0.4);
+}
+
+/* --- SCROLL DOWN INDICATOR (Ratón) --- */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.7;
+}
+
+.mouse {
+    width: 25px;
+    height: 40px;
+    border: 2px solid var(--light);
+    border-radius: 20px;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.wheel {
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+    0% { top: 6px; opacity: 1; }
+    100% { top: 20px; opacity: 0; }
+}
+
+.arrows span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid var(--light);
+    border-right: 2px solid var(--light);
+    transform: rotate(45deg);
+    margin: -5px auto;
+    animation: scrollArrow 2s infinite;
+}
+
+.arrows span:nth-child(2) { animation-delay: -0.2s; }
+.arrows span:nth-child(3) { animation-delay: -0.4s; }
+
+@keyframes scrollArrow {
+    0% { opacity: 0; transform: rotate(45deg) translate(-5px, -5px); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: rotate(45deg) translate(5px, 5px); }
+}
+
+
+/* --- 4. ESTRUCTURA GENERAL --- */
+section { padding: 80px 20px; }
+.container { max-width: 1200px; margin: 0 auto; }
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 60px;
+    text-align: center;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block; width: 60px; height: 3px;
+    background: var(--accent);
+    margin: 15px auto 0;
+}
+
+
+/* --- 5. ESTRATEGIA (3 TARJETAS) --- */
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.strategy-card {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s, background 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.strategy-card:hover {
+    transform: translateY(-10px);
+    background: rgba(13, 19, 33, 0.8);
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+    background: rgba(58, 134, 255, 0.1);
+    width: 80px; height: 80px; line-height: 80px;
+    border-radius: 50%;
+    margin-left: auto; margin-right: auto;
+    transition: 0.3s;
+}
+
+.strategy-card:hover .card-icon {
+    background: var(--primary);
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.strategy-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.strategy-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--light);
+    margin-bottom: 15px;
+}
+
+.strategy-card p {
+    color: #ccc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.highlight-card {
+    border: 1px solid var(--accent);
+    background: linear-gradient(145deg, rgba(255, 190, 11, 0.05), rgba(13, 19, 33, 0.6));
+}
+.highlight-card .card-icon { color: var(--accent); background: rgba(255, 190, 11, 0.1); }
+.highlight-card:hover .card-icon { background: var(--accent); color: var(--dark); }
+
+
+/* --- 6. PROYECTOS --- */
+.project {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    align-items: center;
+    gap: 60px;
+    max-width: 1100px; 
+    margin: 0 auto 80px auto;
+    opacity: 0; 
+    transform: translateY(50px);
+    transition: 1s ease;
+}
+
+.project.active-scroll { 
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.project-video {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.project-details { 
+    text-align: left;
+    max-width: 650px;
+}
+
+.project-details h3 { 
+    font-size: 2rem; 
+    margin-bottom: 20px; 
+    color: var(--light); 
+    font-family: 'Playfair Display', serif; 
+}
+
+/* Marco del Teléfono */
+.phone-frame {
+    width: 340px; 
+    height: 604px; 
+    border-radius: 35px;
+    overflow: hidden;
+    border: 8px solid #111;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5); 
+    position: relative;
+    background: #000;
+}
+
+.phone-frame video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-overlay {
+    position: absolute;
+    bottom: 25px; right: 20px;
+    display: flex; flex-direction: column; gap: 15px;
+    color: white; font-size: 1.2rem;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    z-index: 10;
+}
+
+.video-overlay span {
+    display: flex; flex-direction: column; align-items: center;
+    font-size: 0.8rem; font-weight: bold;
+}
+
+.video-overlay i { font-size: 1.9rem; margin-bottom: 5px; color: white; }
+
+
+/* --- 7. DETALLES DE TEXTO (TABS Y PROMPTS) --- */
+.prompt-box {
+    background: #0a0e17; padding: 20px; border-radius: 8px;
+    border-left: 3px solid var(--accent); margin: 15px 0;
+    font-family: 'Courier New', monospace; color: #4CC9F0; font-size: 0.9rem;
+}
+
+.prompt-intro { margin-bottom: 20px; font-size: 0.9rem; color: #aaa; }
+.prompt-structure h4 {
+    color: var(--primary); margin-top: 25px; margin-bottom: 10px;
+    font-size: 1.1rem; font-family: 'Poppins', sans-serif;
+    border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px;
+}
+.prompt-breakdown {
+    list-style: none; margin-bottom: 15px;
+    background: rgba(255,255,255,0.05); padding: 15px; border-radius: 10px;
+}
+.prompt-breakdown li { margin-bottom: 8px; font-size: 0.9rem; color: #ddd; }
+.prompt-breakdown strong { color: var(--accent); }
+
+/* Pestañas (Tabs) */
+.tabs { margin-bottom: 25px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+.tab-link {
+    background: none; border: none; color: #888; 
+    padding: 10px 25px; cursor: pointer; 
+    font-size: 1rem; font-weight: 600; transition: 0.3s;
+}
+
+.tab-link.active { color: var(--primary); border-bottom: 3px solid var(--primary); }
+
+.tab-content { display: none; animation: fadeIn 0.5s; }
+.active-tab { display: block !important; }
+
+/* Tabla Técnica */
+.tech-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.tech-table th { text-align: left; color: var(--accent); padding: 10px 0; width: 35%; }
+.tech-table td { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+
+
+/* --- 8. CONTACTO --- */
+.contact-wrapper {
+    display: flex; gap: 60px; background: var(--glass);
+    padding: 60px; border-radius: 20px; border: 1px solid var(--glass-border);
+}
+.contact-info { flex: 1; }
+.contact-info h3 { font-size: 2rem; margin-bottom: 20px; color: var(--primary); font-family: 'Poppins', sans-serif;}
+.info-item { display: flex; align-items: center; gap: 20px; margin-top: 25px; }
+.info-item i { color: var(--accent); font-size: 1.2rem; }
+
+.contact-form { flex: 1; display: flex; flex-direction: column; gap: 20px; }
+.contact-form input, .contact-form textarea {
+    padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1);
+    background: rgba(0,0,0,0.3); color: white;
+}
+.contact-form button {
+    padding: 15px; background: var(--primary); color: white; border: none;
+    border-radius: 10px; cursor: pointer; font-weight: bold;
+}
+
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(58, 134, 255, 0.1); 
+    box-shadow: 0 0 15px rgba(58, 134, 255, 0.3);
+    transition: 0.3s;
+}
+
+.btn-success {
+    background-color: #2ecc71 !important;
+    border-color: #2ecc71 !important;
+    color: white !important;
+    box-shadow: 0 0 20px rgba(46, 204, 113, 0.6) !important;
+    pointer-events: none;
+}
+
+
+/* --- 9. FOOTER --- */
+footer {
+    text-align: center; padding: 40px; border-top: 1px solid rgba(255,255,255,0.05);
+    color: #666; font-size: 0.9rem;
+}
+
+footer .socials {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+footer .socials a {
+    color: #888;
+    font-size: 1.5rem;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+footer .socials a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+
+/* --- 10. BOTÓN WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    text-decoration: none;
+    animation: pulse-green 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+
+/* --- 11. RESPONSIVE --- */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 900px) {
+    .hero h1 { font-size: 2.5rem; }
+    .highlight { font-size: 1.8rem; }
+    
+    .project {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 40px;
+        text-align: center;
+        margin-bottom: 100px;
+    }
+    
+    .project-details { 
+        text-align: center; 
+        max-width: 100%;
+    }
+
+    .phone-frame { 
+        width: 100%; 
+        max-width: 300px; 
+        height: 533px; 
+    }
+
+    .contact-wrapper { flex-direction: column; }
+    
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 28px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
